@@ -9,7 +9,7 @@ USE Projet_Bordereau;
 
 CREATE TABLE IF NOT EXISTS MOTIF
  (
-   ID INTEGER NOT NULL  ,
+   ID INTEGER auto_increment NOT NULL  ,
    Libelle VARCHAR(64) NULL  
    , PRIMARY KEY (ID) 
  ) 
