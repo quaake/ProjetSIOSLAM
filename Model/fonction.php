@@ -4,7 +4,7 @@
 		$serveur="localhost";
 	 	$nom="root";
  		$motpasse="root"; 
- 		$base="bloc3act3poulin";
+ 		$base="projet_bordereau";
  		try
  		{
 			$connect = new PDO("mysql:host=".$serveur.";dbname=".$base, $nom, $motpasse);
@@ -21,5 +21,12 @@
 		if ($connect)
 			$connect = NULL;
 	}
+
+		function SelectUnCritere($table, $champ1, $critere1) {
+		$connect=Connexion(); 
+ 		$result=$connect ->prepare("select * from ".$table." where ".$champ1." = :critere1") ;
+ 		$result -> execute(array(':critere1'=>$critere1)); 
+		Deconnexion($connect);
+ 		return $result;}
 
 ?>
