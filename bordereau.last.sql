@@ -25,7 +25,6 @@ CREATE TABLE IF NOT EXISTS RESPONSABLE
    Nom VARCHAR(25) NULL  ,
    Prenom VARCHAR(25) NULL  ,
    DateNaissance DATE NULL  ,
-   Mail VARCHAR(70) NULL  ,
    Mdp VARCHAR(70) NOT NULL  ,
    AdresseRue VARCHAR(34) NULL  ,
    AdresseCP CHAR(5) NULL  ,
