@@ -10,6 +10,8 @@
 		if($line = $result->fetch()) {
 			if(password_verify($_POST["pwd"],$line["Mdp"])==1) {
 				$_SESSION["login"] = SelectUnCritere("Adherent", "Email", $_POST["ema"])->fetch()["Nom"];
+				$_SESSION["email"] = $_POST["ema"];
+				$_SESSION["responsable"] = false;
 				header("Location:index.php");
 			}
 			
@@ -18,6 +20,8 @@
 		if($line = $result->fetch()) {
 			if(password_verify($_POST["pwd"],$line["Mdp"])==1) {
 					$_SESSION["login"] = SelectUnCritere("Responsable", "Email", $_POST["ema"])->fetch()["Nom"];
+					$_SESSION["email"] = $_POST["ema"];
+					$_SESSION["responsable"] = true;
 				header("Location:index.php");
 			}
 		}

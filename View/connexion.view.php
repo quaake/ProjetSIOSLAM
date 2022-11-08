@@ -2,7 +2,7 @@
 	ob_start();
 ?>
 	<div class="center">
-	<form method="POST">
+	<form method="POST" id="formcon">
 		<label for="mail">Identifiant:</label>
 		<input id="mail" name="ema" type="email" placeholder="Email..." required/>
 		<label for="pwd">Mot de passe:</label>
