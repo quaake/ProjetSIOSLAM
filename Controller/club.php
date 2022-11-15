@@ -28,7 +28,7 @@
 			$result2 = SelectUnCritere("club","ID",$line["IdClub"]);
 			$a = $result2->fetch();
 			$tmp = ["NumLicense"=>$line["Num"],"Label"=>$a["Label"],"ID" => $a["ID"]];
-			$result[sizeof($result)] = $tmp;
+			$result[] = $tmp;
 		}
 	}
 	else {
