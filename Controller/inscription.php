@@ -10,7 +10,8 @@
         $hashMDP = password_hash($_POST['mdp'], PASSWORD_BCRYPT);
         $newAdherent = InsertBindParam($table, $hashMDP, $_POST['IdResp'], $_POST['Nom'], $_POST['prenom'], $_POST['Date'], $_POST['Email'], $_POST['adresse'], $_POST['cp'], $_POST['ville']);
         if($newAdherent){
-            header($str);
+            echo '<script type="text/javascript">alert("Votre compte a bien été créer!")</script>';
+            echo  '<meta http-equiv="refresh" content="0; url=connexion.php">';
         }
         else{
             echo "Erreur lors de la création du nouvel adhérent !";
