@@ -8,7 +8,7 @@
     if(isset($_POST['btnValid']) && $_POST['btnValid'] =='Valider' && $_POST['mdp'] == $_POST['mdpConf']){
         $mail = filter_input(INPUT_POST, 'Email', FILTER_VALIDATE_EMAIL);
         $hashMDP = password_hash($_POST['mdp'], PASSWORD_BCRYPT);
-        $newAdherent = InsertAdherent($mail, $hashMDP, $_POST['Nom'], $_POST['prenom'], $_POST['Date'], $_POST['adresse'], $_POST['cp'], $_POST['ville']);
+        $newAdherent = InsertBindParam($table, $hashMDP, $_POST['IdResp'], $_POST['Nom'], $_POST['prenom'], $_POST['Date'], $_POST['Email'], $_POST['adresse'], $_POST['cp'], $_POST['ville']);
         if($newAdherent){
             header($str);
         }
