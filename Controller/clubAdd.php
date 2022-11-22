@@ -1,6 +1,9 @@
 <?php
 	include("../Model/fonction.php");
 	session_start();
+
+
+
 	if(!isset($_SESSION["responsable"]) || !isset($_SESSION["email"])) {
 		header("Location:index.php");
 	}
@@ -22,5 +25,7 @@
 	}
 	$title = "Gestion des clubs";
 	$result = Select("club");
+
+
 	include("../View/clubAdd.view.php");
 ?>

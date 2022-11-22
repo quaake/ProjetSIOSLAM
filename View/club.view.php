@@ -2,18 +2,16 @@
 	ob_start();
 ?>
 
-<script>
-function verif() {
-  return confirm('Cela va supprimer le club de maniére irreversible etes vous sûre?');
-}
-</script>
-	<table>
-		<tbody>
+<script>function verif() {return confirm('Cela va supprimer le club de maniére irreversible etes vous sûre?');}</script>
+<table id="tableClub">
+	<thead>
 		<tr>
 			<th>Nom du club</th>
 			<th>Numéro de license</th>
 			<th></th>
 		</tr>
+	</thead>
+	<tbody>
 		<?php
 			if(isset($result)) {
 			for($i=0;$i<sizeof($result);$i++) { 
@@ -24,12 +22,13 @@ function verif() {
 				echo "</tr>";
 			}
 			}
-		?>
-		</tbody>
-	</table>
-	<form id="addClub" method="POST">
-		<input type="submit" name="addClub" value="Ajouter un club"/>
-	</form>
+			?>
+	</tbody>
+</table>
+<form id="addClub" method="POST">
+	<input type="submit" name="addClub" value="Ajouter un club"/>
+</form>
+
 <?php
 	$content=ob_get_clean();
 	include("template.php");

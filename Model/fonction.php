@@ -89,4 +89,35 @@
 			$connect -> rollBack(); 
 			echo "Une erreur a empecher l'insertion";
 		} }
+
+	function SelectJoinCritere($table, $table2 , $table3 , $champ1 , $champ2, $champ3 ,$champ4 , $critere1, $result1)
+	{
+		$connect=Connexion();
+		$result=$connect->prepare("SELECT * from $table INNER JOIN $table2 ON $table.$champ1 = $table2.$champ2 INNER JOIN $table3 ON $table2.$champ3 = $table3.$champ4 WHERE $critere1 = :loguser");
+
+    	$result->execute(array(':loguser'=>$result1));
+
+    	Deconnexion($connect);
+    	return $result;
+	}
+	function SelectJoinCritere2($table, $table2 , $table3 , $champ1 , $champ2, $champ3 ,$champ4 , $critere1, $result1,$critere2,$result2)
+	{
+		$connect=Connexion();
+		$result=$connect->prepare("SELECT * from $table INNER JOIN $table2 ON $table.$champ1 = $table2.$champ2 INNER JOIN $table3 ON $table2.$champ3 = $table3.$champ4 WHERE $critere1 = :loguser AND $critere2=:log");
+		$result->execute(array(':loguser'=>$result1,':log'=>$result2));
+
+    	Deconnexion($connect);
+    	return $result;
+	}
+	function SelectClub($table, $id, $loguser)
+	{
+		$connect=Connexion();
+
+    	$result=$connect->prepare("SELECT Label from club INNER JOIN ".$table." ON club.ID = ".$table.".IDClub WHERE ".$table.".".$id." = :loguser");
+
+    	$result->execute(array(':loguser'=>$loguser));
+
+    	Deconnexion($connect);
+    	return $result;
+	}
 ?>
