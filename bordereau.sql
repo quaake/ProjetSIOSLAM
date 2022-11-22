@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mar. 15 nov. 2022 à 13:19
+-- Généré le : mar. 22 nov. 2022 à 15:27
 -- Version du serveur :  5.7.24
 -- Version de PHP : 7.2.19
 
@@ -44,7 +44,8 @@ CREATE TABLE `adherent` (
 --
 
 INSERT INTO `adherent` (`Mdp`, `IDResponsable`, `Nom`, `Prenom`, `DateNaissance`, `Email`, `AdresseRue`, `AdresseCP`, `AdresseVille`) VALUES
-('$2y$10$AZWUv1cmU9kF4FtwVSE.geVESivWtMBIZLejHFZ4LX6PwIPSNGSBC', NULL, 'Evan', 'Sabrie', '2022-10-05', 'evan@evan.evan', '23 rue evan evan', 'evan1', 'Evan 32');
+('$2y$10$1AnJEFBvs3SBwq74yF/IUe0qhvR5EbR5aTI6JKHw3GjyJ.XM.kk9m', 'enzo@enzo.enzo', 'Nom', 'Prenom', '2015-07-15', 'adh@email.fr', '52 rue de ch', '52000', 'Chaumont'),
+('$2y$10$AZWUv1cmU9kF4FtwVSE.geVESivWtMBIZLejHFZ4LX6PwIPSNGSBC', 'enzo@enzo.enzo', 'Evan', 'Sabrie', '2022-10-05', 'evan@evan.evan', '23 rue evan evan', 'evan1', 'Evan 32');
 
 -- --------------------------------------------------------
 
@@ -117,6 +118,14 @@ CREATE TABLE `note` (
   `NumRecu` varchar(8) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `note`
+--
+
+INSERT INTO `note` (`ID`, `IDAdherent`, `IDResponsable`, `KmTarif`, `IDClub`, `Signataire`, `Adresse`, `Date`, `Nom`, `Etat`, `Lieu`, `NumRecu`) VALUES
+(1, 'evan@evan.evan', NULL, 0.28, 1, 'Evan', 'adresse?', '2022-11-01', 'Nom', 'En cours', 'Chaumont', '2009-007'),
+(2, 'evan@evan.evan', NULL, 0.28, 1, 'Evan', 'adresse?', '2022-10-11', 'Nom', 'Validé', 'Chaumont', '2022-010');
+
 -- --------------------------------------------------------
 
 --
@@ -159,6 +168,7 @@ CREATE TABLE `sabonner` (
 --
 
 INSERT INTO `sabonner` (`IDAdherent`, `Num`, `IdClub`) VALUES
+('adh@email.fr', '', 3),
 ('evan@evan.evan', '', 1),
 ('evan@evan.evan', '', 2);
 
@@ -260,7 +270,7 @@ ALTER TABLE `motif`
 -- AUTO_INCREMENT pour la table `note`
 --
 ALTER TABLE `note`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Contraintes pour les tables déchargées
