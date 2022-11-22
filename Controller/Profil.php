@@ -16,6 +16,7 @@
 			$table = "responsable";
 			$table2 = "sabonnerresp";
 			$id = "IdResponsable";
+			$enfant = SelectUnCritere("adherent", $id, $_SESSION["email"]);
 		}
 		$champ1 = "Email";
 		$result = SelectUnCritere($table, $champ1, $_SESSION["email"]);

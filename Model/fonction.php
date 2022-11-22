@@ -62,4 +62,11 @@
 		Deconnexion($connect);
 		return $result;
 	}
+
+	function UpdateDelete($query) {
+		$connect=Connexion();
+		$result = $connect->prepare($query);
+		$result = $result->execute();
+		Deconnexion($connect);
+		return $result;}
 ?>

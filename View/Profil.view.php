@@ -49,13 +49,32 @@
 		</table>
 
 		<hr>
-
+		
+		<?php if($_SESSION['responsable'] ==  true){?>
 		<table>
 			<tr>
 				<td>Enfant à charge :</td>
-				<td> ? </td>
+				<td class="scndelem">
+				<ul>
+				<?php 
+						while($e = $enfant->fetch())
+						{
+							echo "<hr>";
+							echo "<li>".$e['Nom']." ".$e['Prenom']."</li>";
+							$clubenfant = SelectClub("sabonner", "IDAdherent", $e['Email']);
+							echo "<ul><li>";
+							while($ce = $clubenfant->fetch())
+							{
+								echo $ce['Label']." | ";
+							}
+							echo "</li></ul>";
+						}
+					?>
+				</ul>
+				</td>
 			</tr>
 		</table>
+		<?php } ?>
 	</div>
 
 </html>

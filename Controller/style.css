@@ -105,8 +105,7 @@
                 text-align: end;
             }
             .scndelem {
-                text-align: start;
-                
+                text-align: start;       
             }
             .scndelem li{
                 list-style-type: none;
@@ -119,3 +118,4 @@
             justify-content:center;
             align-items:center;
         }
+        
